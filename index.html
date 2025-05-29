@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saksham - Intro</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(to right, #141e30, #243b55);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      transition: background 0.5s ease, color 0.5s ease;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      animation: fadeInDown 1s ease;
+    }
+
+    .typing {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      min-height: 30px;
+    }
+
+    img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      margin-bottom: 1.5rem;
+      animation: zoomIn 1s ease;
+    }
+
+    button {
+      padding: 0.8rem 2rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 10px;
+      background-color: #00ffe7;
+      color: #000;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin: 0.5rem;
+    }
+
+    button:hover {
+      background-color: #00cbbf;
+    }
+
+    .toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.5); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .light-mode {
+      background: linear-gradient(to right, #ffffff, #e0e0e0);
+      color: #000;
+    }
+
+    .light-mode button {
+      background-color: #000;
+      color: #fff;
+    }
+
+    .light-mode button:hover {
+      background-color: #444;
+    }
+  </style>
+</head>
+<body>
+  <div class="toggle">
+    <button onclick="toggleMode()">Toggle Mode</button>
+  </div>
+
+  <h1 id="typing"></h1>
+  <img src="profile.jpg" alt="Saksham's Photo" />
+  <p class="typing">Developer | Designer | Innovator</p>
+  <br />
+  <button onclick="navigateToPortfolio()">View My Work</button>
+
+  <script>
+    // Typing animation
+    const text = "Hi, I'm Saksham";
+    let i = 0;
+    const typingEl = document.getElementById("typing");
+
+    function typeText() {
+      if (i < text.length) {
+        typingEl.innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeText, 100);
+      }
+    }
+    typeText();
+
+    // Smooth page transition
+    function navigateToPortfolio() {
+      document.body.style.opacity = 0;
+      setTimeout(() => {
+        window.location.href = 'portfolio.html';
+      }, 500);
+    }
+
+    // Dark/Light mode toggle
+    function toggleMode() {
+      document.body.classList.toggle("light-mode");
+    }
+  </script>
+</body>
+</html>

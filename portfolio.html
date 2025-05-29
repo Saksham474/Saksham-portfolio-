@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saksham - Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    body {
+      /* Removed fixed height to allow scrolling */
+      min-height: 100vh;
+      background: linear-gradient(to right, #141e30, #243b55);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: background 0.5s ease, color 0.5s ease, opacity 0.5s ease;
+      opacity: 1;
+      padding: 2rem;
+      /* Allow content to flow naturally */
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      animation: fadeInDown 1s ease;
+      color: #00ffe7;
+      text-shadow: 0 0 10px #00ffe7;
+    }
+
+    /* Info cards container */
+    .info-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      max-width: 700px;
+      margin-bottom: 3rem;
+      animation: fadeSlideIn 1.5s ease forwards;
+    }
+
+    /* Individual cards */
+    .card {
+      background: rgba(0, 255, 231, 0.12);
+      border-radius: 15px;
+      padding: 1.5rem 2rem;
+      width: 220px;
+      box-shadow: 0 0 12px rgba(0, 255, 231, 0.3);
+      color: #00ffe7;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: default;
+      user-select: none;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 20px #00ffe7, 0 0 30px #00ffe7;
+    }
+
+    .card h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .card .icon {
+      font-size: 1.8rem;
+    }
+
+    .card ul {
+      list-style: none;
+      padding-left: 0;
+      font-size: 1.1rem;
+      line-height: 1.5;
+      color: #c0fff9;
+    }
+
+    /* Buttons style */
+    button {
+      padding: 0.8rem 2rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 10px;
+      background-color: #00ffe7;
+      color: #000;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      margin: 0.5rem;
+      box-shadow: 0 5px 15px rgba(0, 255, 231, 0.4);
+    }
+
+    button:hover {
+      background-color: #00cbbf;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 203, 191, 0.6);
+    }
+
+    .toggle {
+      position: fixed; /* changed to fixed so it stays visible on scroll */
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Light mode styles */
+    .light-mode {
+      background: linear-gradient(to right, #ffffff, #e0e0e0);
+      color: #000;
+    }
+
+    .light-mode h1 {
+      color: #00796b;
+      text-shadow: 0 0 10px #00796b;
+    }
+
+    .light-mode .card {
+      background: rgba(0, 121, 107, 0.15);
+      box-shadow: 0 0 12px rgba(0, 121, 107, 0.4);
+      color: #004d40;
+    }
+
+    .light-mode .card:hover {
+      box-shadow: 0 0 20px #00796b, 0 0 30px #00796b;
+    }
+
+    .light-mode button {
+      background-color: #004d40;
+      color: #fff;
+      box-shadow: 0 5px 15px rgba(0, 77, 64, 0.6);
+    }
+
+    .light-mode button:hover {
+      background-color: #00796b;
+      box-shadow: 0 8px 20px rgba(0, 121, 107, 0.9);
+    }
+  </style>
+</head>
+<body>
+  <div class="toggle">
+    <button onclick="toggleMode()">Toggle Mode</button>
+  </div>
+
+  <h1>My Portfolio</h1>
+
+  <div class="info-cards">
+    <div class="card">
+      <h2><span class="icon">💼</span> Projects</h2>
+      <ul>
+        <li>E-commerce site</li>
+        <li>Chatbot</li>
+        <li>Blockchain Licensing System</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2><span class="icon">🛠️</span> Skills</h2>
+      <ul>
+        <li>HTML, CSS, JavaScript</li>
+        <li>React, Python</li>
+        <li>Solidity</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2><span class="icon">🎓</span> Experience</h2>
+      <ul>
+        <li>Internships</li>
+        <li>Personal & Academic Projects</li>
+        <li>Open-source Contributions</li>
+      </ul>
+    </div>
+  </div>
+
+  <button onclick="goToPese()">View PESE Session Videos</button>
+  <button onclick="openResume()">View Resume</button>
+  <button onclick="navigateBack()">Back to Intro</button>
+
+  <script>
+    // Smooth page transition back to intro page
+    function navigateBack() {
+      document.body.style.opacity = 0;
+      setTimeout(() => {
+        window.location.href = 'index.html';
+      }, 500);
+    }
+
+    // Smooth page transition to PESE videos page
+    function goToPese() {
+      document.body.style.opacity = 0;
+      setTimeout(() => {
+        window.location.href = 'pese.html';
+      }, 500);
+    }
+
+    // Open local resume pdf in a new tab
+    function openResume() {
+      window.open('sakshamresume.pdf', '_blank');
+    }
+
+    // Dark/Light mode toggle
+    function toggleMode() {
+      document.body.classList.toggle("light-mode");
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PESE Session Videos</title>
+  <style>
+    body {
+      background-color: #1e1e1e;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    h1 {
+      margin-bottom: 1.5rem;
+    }
+
+    video {
+      width: 80%;
+      max-width: 720px;
+      margin-bottom: 1.5rem;
+      border: 2px solid #00ffe7;
+      border-radius: 10px;
+    }
+
+    .buttons button {
+      padding: 0.7rem 1.5rem;
+      margin: 0.5rem;
+      font-size: 1rem;
+      background-color: #00ffe7;
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .buttons button:hover {
+      background-color: #00cbbf;
+    }
+
+    /* Top-right container */
+    .top-right-buttons {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      gap: 10px;
+      z-index: 1000;
+    }
+
+    .top-right-buttons button {
+      background-color: #00ffe7;
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: background-color 0.3s;
+    }
+
+    .top-right-buttons button:hover {
+      background-color: #00cbbf;
+    }
+
+    .top-right-buttons svg {
+      width: 20px;
+      height: 20px;
+      fill: #000;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-right-buttons">
+    <button onclick="goToPortfolio()" aria-label="Go to Portfolio">
+      <!-- Portfolio icon (briefcase) -->
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+        <path d="M10 2H14V4H19C20.1 4 21 4.9 21 6V19C21 20.1 20.1 21 19 21H5C3.9 21 3 20.1 3 19V6C3 4.9 3.9 4 5 4H10V2ZM5 6V19H19V6H5Z"/>
+      </svg>
+      Portfolio
+    </button>
+    <button onclick="goToIndex()" aria-label="Go to Home">
+      <!-- Home icon -->
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+      </svg>
+      Home
+    </button>
+  </div>
+
+  <h1>PESE Session Videos</h1>
+  <video id="videoPlayer" controls>movie Review
+    <source src="logo.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="buttons">
+    <button onclick="playVideo('session1.mp4')">Session 1</button>
+    <button onclick="playVideo('session2.mp4')">Session 2</button>
+    <button onclick="playVideo('session3.mp4')">Session 3</button>
+    <button onclick="playVideo('session reviews.mp4')">Session Review</button>
+    <button onclick="playVideo('movie review.mp4')">Movie Review</button>
+     <button onclick="playVideo('Interview part1.mp4')">Interview part1</button>
+    <button onclick="playVideo('Interview session 2.mp4')">Interview part2</button>
+    <button onclick="playVideo('Interview session 3.mp4')">Interview part3</button>
+    <!-- Add more buttons and video paths as needed -->
+  </div>
+
+  <script>
+    function playVideo(videoSrc) {
+      const player = document.getElementById('videoPlayer');
+      player.src = videoSrc;
+      player.play();
+    }
+
+    function goToPortfolio() {
+      window.location.href = 'portfolio.html';
+    }
+
+    function goToIndex() {
+      window.location.href = 'index.html';
+    }
+  </script>
+</body>
+</html>
